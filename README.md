@@ -34,6 +34,7 @@ For ease of use, I've included some command line flags so that you can run this 
 - ``--output`` Optional: The FULL PATH to the FOLDER where you'd like the frames to be outputted to. By default, an output folder is created in the root directory.
 - ``--skip`` Optional: The amount of frames to skip per second when splitting. For example, in a 24FPS video, 23 frames will be skipped and 1 will be kept per second. Avoids waste of storage and duplicates.
 - ``--threshold`` Optional: The threshold (sensitivity) of deleting duplicates when deduplicating. **The higher the threshold, the stricter it is (and more duplicates will be removed). The recommended value for this is 10.
+- ``--verbose`` Optional: Whether literally everything should be logged in the terminal. This will spam.
 
 ## Contributing
 Anyone is welcome to contribute to this as long as it provides something meaningful. Do not PR with syntax fixes or comment grammar fixes unless they are breaking.
