@@ -47,7 +47,7 @@ def split_video(input_path, output_path, skip, verbose):
     if frame_index % skip == 0:
       frame_path = os.path.join(output_path, f"{frame_count:05d}.jpg")
       cv2.imwrite(frame_path, frame)
-      if verbose == True:
+      if verbose:
         print(f"Created {frame_count:05d}.jpg")
       frame_count+=1
       

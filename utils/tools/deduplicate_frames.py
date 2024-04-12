@@ -6,7 +6,7 @@ from PIL import Image
 
 def calculate_hash(image):
     # Make image grayscale for consistency
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) # Not using this rn, not many improvements, we will see
     # Compute hash using the average hash method
     return imagehash.average_hash(
         Image.fromarray(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
@@ -34,7 +34,7 @@ def deduplicate_frames(input_path, threshold, verbose):
                 os.remove(frame_path)
                 duplicate_found = True
                 frames_removed += 1
-                if verbose == True:
+                if verbose:
                   print(f"Removed duplicate frame {frame_path}")
                 break
 
