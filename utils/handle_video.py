@@ -1,6 +1,6 @@
 import os
-from utils.tools.split_video import split_video
-from utils.tools.deduplicate_frames import deduplicate_frames
+from utils.tools.video.split_video import split_video
+from utils.tools.video.deduplicate_frames import deduplicate_frames
 
 def handle_video(input_path, output_path, skip, threshold, verbose):
     # Iterate through all files in the input folder
