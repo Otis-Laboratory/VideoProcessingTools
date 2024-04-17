@@ -1,16 +1,10 @@
-import multiprocessing
 import os
 from tools.utils.print_color import MessageType, print_color
 from tools.functions.split_video import split_video
-
-
-def process_video(video_path, output_path, skip, verbose):
-    split_video(video_path, output_path, skip, verbose)
+from tools.functions.deduplicate_frames import deduplicate_frames
 
 
 def handle_videos(input_path, output_path, skip, threshold, verbose):
-    processes = []
-
     for root, dirs, files in os.walk(input_path):
         for file in files:
             if file.endswith((".mkv", ".mp4")):
@@ -22,15 +16,5 @@ def handle_videos(input_path, output_path, skip, threshold, verbose):
                 os.makedirs(
                     output_folder, exist_ok=True
                 )  # create output folder if not exists
-
-                # Start a new process to handle each video
-                process = multiprocessing.Process(
-                    target=process_video,
-                    args=(video_path, output_folder, skip, verbose),
-                )
-                processes.append(process)
-                process.start()
-
-    # Wait for all processes to finish
-    for process in processes:
-        process.join()
+                split_video(video_path, output_folder, skip, verbose)
+                deduplicate_frames(output_folder, threshold, verbose)
