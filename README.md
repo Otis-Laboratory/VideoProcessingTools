@@ -6,6 +6,13 @@ These are my miscellaneous video processing tools that I use to fine-tune SD mod
 - Customized thresholds and frame-skipping so that you can split how you like
 
 ## Setup
+There are Windows executables provided in the releases tab, however you can build an executable from source:
+```sh
+pip install -r requirements-optional.txt
+
+pyinstall main.py
+```
+Or, run the python scripts.
 ```sh
 python -m venv venv
 
@@ -38,5 +45,3 @@ For ease of use, I've included some command line flags so that you can run this 
 
 ## Contributing
 Anyone is welcome to contribute to this as long as it provides something meaningful. Do not PR with syntax fixes or comment grammar fixes unless they are breaking.
-
-This project will be rewritten in C/C++.
