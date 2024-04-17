@@ -5,6 +5,7 @@ class MessageType(Enum):
     ERROR = "error"
     WARN = "warn"
     INFO = "info"
+    SUCCESS = "success"
 
 
 def print_color(message, type):
@@ -13,6 +14,7 @@ def print_color(message, type):
         "error": "\033[91m",  # red
         "warn": "\033[93m",
         "info": "\033[94m",  # blue
+        "success": "\033[92m"
     }
 
     color = colors.get(type, colors["reset"])
