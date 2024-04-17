@@ -1,4 +1,5 @@
 import os
+import time
 import cv2
 
 from tools.utils.print_color import MessageType, print_color
@@ -10,12 +11,13 @@ def split_video(video_path, output_path, skip, verbose):
     return print_color("[ERR] There was an error while opening the video. Please try again and/or open a GitHub issue if this persists.", MessageType.ERROR.value)
   
   # vars
-  frame_count = 0;
-  frame_index = 0;
+  frame_count = 0
+  frame_index = 0
   video_fc = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
   video_fps = video.get(cv2.CAP_PROP_FPS)
   video_duration = video_fc / video_fps
   video_splitted_fc = video_fc / skip
+  start_time = time.time()
 
   # print info
   print_color(f"\n[INFO] HANDLING VIDEO {os.path.basename(video_path)}", MessageType.INFO.value)
@@ -41,4 +43,6 @@ def split_video(video_path, output_path, skip, verbose):
     frame_index+=1
   
   video.release()
-  print_color(f"[SUCC] Successfully wrote {video_splitted_fc:.0f} frames to \"{output_path}\"", MessageType.SUCCESS.value)
+  end_time = time.time() 
+  time_taken = end_time - start_time  
+  print_color(f"[SUCC] Successfully wrote {video_splitted_fc:.0f} frames to \"{output_path}\" in {time_taken:.2f} seconds.", MessageType.SUCCESS.value)
