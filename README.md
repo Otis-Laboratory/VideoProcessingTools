@@ -37,7 +37,7 @@ Note: This script will not automatically delete credits and intros and whatnot f
 
 ## Usage
 For ease of use, I've included some command line flags so that you can run this multiple times without having to edit code directly:
-- ``--input`` Required: The FULL PATH to the FOLDER with your images. Providing the link to a video itself will lead to an error, so make sure it is a folder.
+- ``--input`` Required: The FULL PATH to the FOLDER with your video(s). Providing the link to a video itself will lead to an error, so make sure it is a folder.
 - ``--output`` Optional: The FULL PATH to the FOLDER where you'd like the frames to be outputted to. By default, an output folder is created in the root directory.
 - ``--skip`` Optional: The amount of frames to skip per second when splitting. For example, in a 24FPS video, 23 frames will be skipped and 1 will be kept per second. Avoids waste of storage and duplicates.
 - ``--threshold`` Optional: The threshold (sensitivity) of deleting duplicates when deduplicating. **The higher the threshold, the stricter it is (and more duplicates will be removed). The recommended value for this is 10.
